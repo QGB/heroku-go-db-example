@@ -7,7 +7,7 @@ run: .env create bin/heroku-go-db-example
 	cp .env.dev .env
 
 bin/heroku-go-db-example: main.go
-	go build -o bin/heroku-go-db-example main.go
+	go get;go build -o bin/heroku-go-db-example main.go
 
 create:
 	@psql -lqt | cut -d \| -f 1 | grep -qw $(DATABASE_NAME) || createdb $(DATABASE_NAME)
